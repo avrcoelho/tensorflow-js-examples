@@ -19,6 +19,28 @@ A web application that hooks into your webcam to perform real-time multi-object 
   * Filters predictions to highlight objects detected with >66% confidence.
   * Lightweight vanilla HTML, CSS, and JS.
 
+### 2. Linear Regression (House Price Prediction)
+A machine learning example demonstrating how to train a single-neuron sequential model to predict house prices based on house size and number of bedrooms.
+
+* **Path**: [`/linear-regression`](file:///Users/andrecoelho/Documents/Projects/tensorflow-js-examples/linear-regression)
+* **Model**: A custom sequential model with a single dense layer (`tf.layers.dense({ inputShape: [2], units: 1 })`).
+* **Features**:
+  * Shuffling and normalizing multidimensional input features (2D tensors) to improve training stability.
+  * Training using Stochastic Gradient Descent (`tf.train.sgd`) and Mean Squared Error (`meanSquaredError`) loss.
+  * Visualizing normalization metrics (Min/Max values) and tracking training and validation error loss.
+  * Clean-up of unused tensors to optimize memory usage.
+
+### 3. Load Raw TFJS Model (MoveNet Pose Estimation)
+An example demonstrating how to load a raw Graph Model (MoveNet Lightning) directly from Kaggle Models (TF Hub) and run inference on an image.
+
+* **Path**: [`/load-raw-tfjs`](file:///Users/andrecoelho/Documents/Projects/tensorflow-js-examples/load-raw-tfjs)
+* **Model**: [MoveNet SinglePose Lightning](https://www.kaggle.com/models/google/movenet/tfJs/singlepose-lightning/4) loaded dynamically.
+* **Features**:
+  * Dynamic model loading using `tf.loadGraphModel` with `{ fromTFHub: true }`.
+  * Preprocessing image elements from the DOM into tensors (`tf.browser.fromPixels`).
+  * Image tensor operations such as cropping (`tf.slice`) and bilinear resizing (`tf.image.resizeBilinear`).
+  * Expanding dimensions to match model input requirements and printing keypoint arrays to the browser console.
+
 ---
 
 ## 🛠️ How to Run the Examples
