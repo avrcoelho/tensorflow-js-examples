@@ -41,6 +41,38 @@ An example demonstrating how to load a raw Graph Model (MoveNet Lightning) direc
   * Image tensor operations such as cropping (`tf.slice`) and bilinear resizing (`tf.image.resizeBilinear`).
   * Expanding dimensions to match model input requirements and printing keypoint arrays to the browser console.
 
+### 4. MNIST Classifier (Handwritten Digit Recognition)
+A machine learning example that trains a custom neural network locally in the browser to classify handwritten digits from the MNIST dataset.
+
+* **Path**: [`/mnist-classifier`](file:///Users/andrecoelho/Documents/Projects/tensorflow-js-examples/mnist-classifier)
+* **Model**: A custom sequential model with dense layers (`32 -> 16 -> 10` units).
+* **Features**:
+  * Loads MNIST digit pixel data directly from GCS.
+  * Shuffles and splits training data to train the model inside the browser.
+  * Uses the Adam optimizer and Categorical Cross Entropy loss.
+  * Periodically selects a random digit to predict, displaying the input image on a canvas, and highlighting correct/wrong predictions.
+
+### 5. Comment Spam Detection (Real-Time Client-Side Spam Filtering)
+A Node/Express web application featuring a client-side spam classifier that detects and flags spam comments in real-time.
+
+* **Path**: [`/comment-span-detection`](file:///Users/andrecoelho/Documents/Projects/tensorflow-js-examples/comment-span-detection)
+* **Model**: A pre-trained layers model for spam classification loaded via a CDN.
+* **Features**:
+  * Tokenizes input sentences client-side using a dictionary mapping.
+  * Runs predictions with a custom-trained TensorFlow.js model to flag comments with confidence exceeding a spam threshold (>75%).
+  * Simulates a real-time collaborative chat room or comment feed.
+
+### 6. Teachable Machine (Transfer Learning with MobileNet)
+An interactive demonstration of transfer learning, allowing users to train a custom image classifier using their webcam directly in the browser.
+
+* **Path**: [`/teachable-machine`](file:///Users/andrecoelho/Documents/Projects/tensorflow-js-examples/teachable-machine)
+* **Model**: [MobileNet v2](https://github.com/tensorflow/tfjs-models/tree/master/mobilenet) base model coupled with a custom sequential classification head.
+* **Features**:
+  * Performs transfer learning by extracting intermediate feature vectors (embeddings) from MobileNet's global average pooling layer.
+  * Captures real-time webcam data for two custom classes.
+  * Trains a multi-layer classification head in real-time in the browser.
+  * Runs live inference on the camera stream to predict class categories.
+
 ---
 
 ## 🛠️ How to Run the Examples
